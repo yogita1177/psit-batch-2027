@@ -4,3 +4,5 @@ function complete(){
 }
 
 setTimeout(complete, 2000);
+
+console.log("Hello");
