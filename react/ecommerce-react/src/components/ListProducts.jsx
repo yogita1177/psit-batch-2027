@@ -1,97 +1,31 @@
+import ProductCard from './ProductCard';
+import products from '../data/products';
+import { useState } from 'react';
+
 function ListProducts() {
+  //   let productList = products;
+  const [productList, setProductList] = useState(products);
+
+  function filterProducts() {
+    setProductList(products.filter((product) => product.price > 200000));
+  }
   return (
-    <section class='products'>
+    <section className='products'>
       <h1>Trending Products</h1>
-      <div class='products-grid'>
-        <div class='product-card'>
-          <img src='./images/product1.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product2.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product3.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product4.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product5.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product6.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product7.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product8.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product9.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
-
-        <div class='product-card'>
-          <img src='./images/product10.avif' alt='' />
-          <h3>Sports Suit</h3>
-          <div class='product-info'>
-            <p>599/-</p>
-            <button>Add to Cart</button>
-          </div>
-        </div>
+      <button onClick={filterProducts} className='filter-btn'>
+        Filter Products Above 2000
+      </button>
+      <div className='products-grid'>
+        {productList.map((product) => (
+          <ProductCard
+            key={product.id}
+            productDetails={{
+              name: product.name,
+              price: product.price,
+              image: product.image,
+            }}
+          />
+        ))}
       </div>
     </section>
   );
