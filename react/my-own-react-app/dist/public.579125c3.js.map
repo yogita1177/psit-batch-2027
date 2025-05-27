@@ -1,0 +1,1 @@
+{"mappings":"AAAA,MAAM,OAAO,SAAS,cAAc,CAAC;AACrC,KAAK,SAAS,GAAG","sources":["src/index.js"],"sourcesContent":["const root = document.getElementById(\"root\");\nroot.innerHTML = \"Hello I am coming from div.\";"],"names":[],"version":3,"file":"public.579125c3.js.map","sourceRoot":"/__parcel_source_root/"}
