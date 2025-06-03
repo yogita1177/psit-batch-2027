@@ -93,13 +93,15 @@ header {
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
 }
 
 .product-card {
+  width: 100%;
+  max-width: 300px;
   padding: 20px;
   text-align: center;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
@@ -144,5 +146,35 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.reset-btn {
+  background-color: #e81f91;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.search-product-btn {
+  background-color: #e81f91;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.search-products {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
 }
