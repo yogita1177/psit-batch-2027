@@ -1,11 +1,14 @@
 import express, { Request, Response } from "express";
+import { initializeDatabase } from "./config/Database";
+import trackRouter from "./routes/TrackRoutes";
 
 const app = express();
 
 const port: number = 8080;
+app.use(express.json());
+app.use("/api/v1", trackRouter);
 
-// REST API exposed as a GET HTTP Method on API Path = "/products"
-app.get("/products", (request: Request, response: Response) => {
+const someMethod = (request: Request, response: Response) => {
   const products = [
     {
       id: 1,
@@ -59,8 +62,18 @@ app.get("/products", (request: Request, response: Response) => {
     data: products,
     total: products.length,
   });
-});
+};
 
-app.listen(port, () => {
-  console.log(`Server is running on port number ${port}`);
-});
+// REST API exposed as a GET HTTP Method on API Path = "/products"
+app.get("/products", someMethod);
+
+initializeDatabase()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running on port number ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database:", err);
+    process.exit(1);
+  });
