@@ -202,9 +202,7 @@ backend/
 
 ## 6. Template for Future Services
 
-- Create a new folder for each backend service or frontend model.
-- Document the structure, call flow, and responsibilities in a markdown file in the `System Design` folder.
-- Use diagrams, tables, and step-by-step explanations for clarity.
+- We will create similar files for other services like topic, subtopic, etc.
 
 ---
 
