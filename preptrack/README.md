@@ -196,7 +196,6 @@ backend/
 - **Type Safety:** TypeScript and TypeORM ensure strong typing and schema validation.
 - **Extensibility:** New backend services and frontend models can follow the same structure for consistency.
 - **Error Handling:** Can be centralized in `app.ts` for all routes and services.
-- **Documentation:** Each service/module should have its own design doc in the `System Design` folder.
 
 ---
 
