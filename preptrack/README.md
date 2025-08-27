@@ -52,6 +52,7 @@ Start using `npm start`
 - Create different directories `model`, `routes`, `controller`, `service`, `repository`, and `config` inside `src`.
 - Run `npm install pg typeorm reflect-metadata && npm install -D @types/pg` to install the required packages in order to setup postgres and node.js connection and using typeorm.
 - Please make sure your `tsconfig.json` file matches with the one there in the repository.
+- Download database by following this link https://www.postgresql.org/download/.
 
 ## Overview
 
@@ -109,7 +110,7 @@ backend/
 
 ### 2.2. Example: POST /api/v1/tracks
 
-![alt text](https://github.com/innoskrit/psit-batch-2027/tree/master/preptrack/documentation/track_flowchart.png "Track API Flow Chart")
+![alt text](https://raw.githubusercontent.com/innoskrit/psit-batch-2027/master/preptrack/documentation/track_flowchart.png "Track API Flow Chart")
 
 #### Step-by-Step Breakdown
 
