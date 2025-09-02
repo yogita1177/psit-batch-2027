@@ -8,7 +8,7 @@ export class TrackService {
     this.trackRepository = new TrackRepository();
   }
 
-  async create(track: Track): Promise<Track> {
+  async create(track: Partial<Track>): Promise<Track> {
     return this.trackRepository.createAndSave(track);
   }
 }

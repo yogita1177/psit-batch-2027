@@ -9,7 +9,7 @@ export class TrackRepository {
     this.repository = PostgresDataSource.getRepository(Track);
   }
 
-  async createAndSave(track: Track): Promise<Track> {
+  async createAndSave(track: Partial<Track>): Promise<Track> {
     const createdTrack = this.repository.create(track);
     return this.repository.save(createdTrack);
   }
