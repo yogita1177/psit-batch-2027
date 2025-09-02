@@ -13,4 +13,12 @@ export class TrackRepository {
     const createdTrack = this.repository.create(track);
     return this.repository.save(createdTrack);
   }
+
+  async findAll(): Promise<Track[]> {
+    return this.repository.find();
+  }
+
+  async findById(id: string): Promise<Track | null> {
+    return this.repository.findOne({ where: { id } });
+  }
 }

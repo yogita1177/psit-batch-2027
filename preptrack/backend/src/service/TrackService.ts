@@ -11,4 +11,12 @@ export class TrackService {
   async create(track: Partial<Track>): Promise<Track> {
     return this.trackRepository.createAndSave(track);
   }
+
+  async findAll(): Promise<Track[]> {
+    return this.trackRepository.findAll();
+  }
+
+  async findById(id: string): Promise<Track | null> {
+    return this.trackRepository.findById(id);
+  }
 }
