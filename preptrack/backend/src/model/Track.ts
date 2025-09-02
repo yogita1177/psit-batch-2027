@@ -10,7 +10,7 @@ import {
 @Entity({ name: "tracks" })
 export class Track {
   @PrimaryGeneratedColumn("uuid")
-  id!: number;
+  id!: string;
 
   @Index({ unique: true })
   @Column({ type: "varchar", length: 255 })
