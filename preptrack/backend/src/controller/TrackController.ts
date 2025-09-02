@@ -35,3 +35,51 @@ export const findTrackById = async (request: Request, response: Response) => {
     response.status(500).json({ error: error });
   }
 };
+
+export const updateTrack = async (request: Request, response: Response) => {
+  const id = request.params.id;
+  try {
+    const track = await trackService.update(id!, request.body);
+    if (track === null) {
+      response.status(404).json({
+        message: `Track is not found with the given id ${id}`,
+      });
+      return;
+    }
+    response.status(200).json(track);
+  } catch (error) {
+    response.status(500).json({ error: error });
+  }
+};
+
+export const findTrackBySlug = async (request: Request, response: Response) => {
+  const slug = request.params.id;
+  try {
+    const track = await trackService.findBySlug(slug!);
+    if (track === null) {
+      response.status(404).json({
+        message: `Track is not found with the given slug ${slug}`,
+      });
+      return;
+    }
+    response.status(200).json(track);
+  } catch (error) {
+    response.status(500).json({ error: error });
+  }
+};
+
+export const deleteTrack = async (request: Request, response: Response) => {
+  const id = request.params.id;
+  try {
+    const isDeleted = await trackService.delete(id!);
+    if (isDeleted === false) {
+      response.status(404).json({
+        message: `Track is not found with the given id ${id}`,
+      });
+      return;
+    }
+    response.status(200).json({ message: "Deleted Successfully" });
+  } catch (error) {
+    response.status(500).json({ error: error });
+  }
+};
